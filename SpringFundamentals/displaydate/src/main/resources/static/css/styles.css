@@ -1,0 +1,15 @@
+.center{
+    margin-top: 20%;
+}
+.center a{
+    margin:0 20%;
+    font-size: large;
+}
+.time{
+    margin-top:20%;
+    color:forestgreen;
+}
+.date{
+    margin-top:20%;
+    color:cornflowerblue;
+}
