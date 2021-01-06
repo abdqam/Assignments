@@ -15,7 +15,6 @@ public class NinjaGold {
         if(session.isNew()) {
             session.setAttribute("gold", 0);
             session.setAttribute("result", "");
-            session.setAttribute("lose", "");
             return "redirect:/";
         }
         else return "root.jsp";
@@ -58,9 +57,9 @@ public class NinjaGold {
                 session.setAttribute("result", casino);
             }
             else{
-                String casino = (String) session.getAttribute("lose");
-                casino = casino + "You entered a casino and lost " + Gold + " gold..Ouch. (" + new java.util.Date() + ")" + "<br/>";
-                session.setAttribute("lose", casino);
+                String casino = (String) session.getAttribute("result");
+                casino = casino + "<span style='color:red'>You entered a casino and lost " + Gold*-1+ " gold..Ouch. (" + new java.util.Date() + ")" + "</span><br/>";
+                session.setAttribute("result", casino);
             }
             Gold += (int) session.getAttribute("gold");
             session.setAttribute("gold", Gold);
@@ -68,9 +67,9 @@ public class NinjaGold {
         if(which_form.equals("spa")) {
             Random r = new Random();
             int Gold = (r.nextInt(20- 5) + 5)*-1;
-            String spa = (String) session.getAttribute("lose");
-            spa = spa + "You entered a spa and lost " + Gold + " gold..Ouch. (" + new java.util.Date() + ")" + "<br/>";
-            session.setAttribute("lose", spa);
+            String spa = (String) session.getAttribute("result");
+            spa = spa + "<span style='color:red'>You entered a spa and lost " + Gold*-1 + " gold..Ouch. (" + new java.util.Date() + ")" + "</span><br/>";
+            session.setAttribute("result", spa);
             Gold += (int) session.getAttribute("gold");
             session.setAttribute("gold", Gold);
         }

@@ -55,7 +55,7 @@
 <div class="activites">
     <p>Activites:</p>
     <div class="scroll">
-        <p><span style="color:green"><%=session.getAttribute("result")%></span><span style="color:red"><%=session.getAttribute("lose")%></span></p>
+        <p style="color:green"><%=session.getAttribute("result")%></p>
 
     </div>
     <form class="destroy" action="/destroy"><button>Play Again</button></form>
