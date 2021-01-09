@@ -53,15 +53,4 @@ public class BookService {
             bookRepository.deleteById(id);
         }
     }
-
-    public void updateBook(Book book) {
-        Book editedBook = bookRepository.findById(book.getId()).orElse(null);
-        assert editedBook != null;
-        editedBook.setTitle(book.getTitle());
-        editedBook.setDescription(book.getDescription());
-        editedBook.setLanguage(book.getLanguage());
-        editedBook.setNumberOfPages(book.getNumberOfPages());
-        bookRepository.save(editedBook);
-    }
-
 }
