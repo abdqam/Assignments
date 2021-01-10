@@ -1,0 +1,64 @@
+.welcome{
+    margin: 10% 35%;
+    text-align:center;
+}
+.welcome h1{
+font-size:xxx-large;
+}
+.welcome a{
+font-size: x-large;
+}
+.btn{
+    padding: 1%;
+    background-color: 4c94af;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+.btn:hover{
+    background-color: #437588;
+}
+.show{
+margin: 10% 35%;
+width:20%;
+
+}
+.show a{
+margin:1%;
+}
+.form form{
+display:flex;
+}
+.form form input[type=submit]{
+    padding: 1%;
+    background-color: 4c94af;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    padding: 2%;
+    margin: 3%;
+}
+table {
+    margin-left:25%;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-top:5%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4c94af;
+    color: white;
+}
