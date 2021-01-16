@@ -86,12 +86,8 @@ public class EventsService {
     public void deleteEvent(Long id){
         Event event=eventRepository.findById(id).orElse(null);
         List<Message> messages = event.getMessages();
-        List<User> users = event.getJoinedUsers();
         for(Message msg:messages){
             messageRepository.deleteById(msg.getId());
-        }
-        for(User usr:users){
-            users.remove(usr);
         }
         eventRepository.deleteById(id);
     }
