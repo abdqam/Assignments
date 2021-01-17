@@ -1,0 +1,20 @@
+@charset "ISO-8859-1";
+
+body{
+    width:470px;
+}
+body>div{
+    display: inline-block;
+}
+.red{
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+}
+.black{
+    background-color: black;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+}
