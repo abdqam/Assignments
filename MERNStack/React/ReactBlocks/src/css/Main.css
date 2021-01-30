@@ -1,0 +1,9 @@
+.Main{
+    float: right;
+    width: 68%;
+    background-color: #e06666;
+    min-height: 700px;
+    justify-content: space-between;
+    padding: 10px;
+}
+
