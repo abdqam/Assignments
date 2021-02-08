@@ -1,0 +1,615 @@
+>use 'my_first_db'
+>switched to db my_first_db
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+>db.createCollection('students')
+>{ "ok" : 1 }
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\._./>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>db.students.insert({name:"kamal",home_state:"nablus",lucky_number:7,birthday:{month:7,day:2,year:1994}})
+>WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"salah",home_state:"ramallah",lucky_number:5,birthday:{month:10,day:2,year:1997}})
+>WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"manar",home_state:"italy",lucky_number:62,birthday:{month:9,day:25,year:1995}})
+>WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"abdusalam",home_state:"nablus",lucky_number:2,birthday:{month:12,day:1,year:1993}})
+>WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"samer",home_state:"ramallah",lucky_number:9,birthday:{month:2,day:9,year:1990}})
+>WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"yasmeen",home_state:"ramallah",lucky_number:2,birthday:{month:9,day:5,year:1995}})
+>WriteResult({ "nInserted" : 1 })
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("60213289adbf9244e7540998"),
+        "name" : "kamal",
+        "home_state" : "nablus",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 2,
+                "year" : 1994
+        }
+}
+{
+        "_id" : ObjectId("602132c4adbf9244e7540999"),
+        "name" : "salah",
+        "home_state" : "ramallah",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 10,
+                "day" : 2,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("602132e6adbf9244e754099a"),
+        "name" : "manar",
+        "home_state" : "italy",
+        "lucky_number" : 62,
+        "birthday" : {
+                "month" : 9,
+                "day" : 25,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("60213303adbf9244e754099b"),
+        "name" : "abdusalam",
+        "home_state" : "nablus",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 12,
+                "day" : 1,
+                "year" : 1993
+        }
+}
+{
+        "_id" : ObjectId("60213346adbf9244e754099c"),
+        "name" : "samer",
+        "home_state" : "ramallah",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+{
+        "_id" : ObjectId("60213362adbf9244e754099d"),
+        "name" : "yasmeen",
+        "home_state" : "ramallah",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 9,
+                "day" : 5,
+                "year" : 1995
+        }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.find({home_state:{$in:["nablus","ramallah"]}}).pretty()
+{
+        "_id" : ObjectId("60213289adbf9244e7540998"),
+        "name" : "kamal",
+        "home_state" : "nablus",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 2,
+                "year" : 1994
+        }
+}
+{
+        "_id" : ObjectId("602132c4adbf9244e7540999"),
+        "name" : "salah",
+        "home_state" : "ramallah",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 10,
+                "day" : 2,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("60213303adbf9244e754099b"),
+        "name" : "abdusalam",
+        "home_state" : "nablus",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 12,
+                "day" : 1,
+                "year" : 1993
+        }
+}
+{
+        "_id" : ObjectId("60213346adbf9244e754099c"),
+        "name" : "samer",
+        "home_state" : "ramallah",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+{
+        "_id" : ObjectId("60213362adbf9244e754099d"),
+        "name" : "yasmeen",
+        "home_state" : "ramallah",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 9,
+                "day" : 5,
+                "year" : 1995
+        }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.find({lucky_number:{$gt:3}}).pretty()
+{
+        "_id" : ObjectId("60213289adbf9244e7540998"),
+        "name" : "kamal",
+        "home_state" : "nablus",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 2,
+                "year" : 1994
+        }
+}
+{
+        "_id" : ObjectId("602132c4adbf9244e7540999"),
+        "name" : "salah",
+        "home_state" : "ramallah",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 10,
+                "day" : 2,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("602132e6adbf9244e754099a"),
+        "name" : "manar",
+        "home_state" : "italy",
+        "lucky_number" : 62,
+        "birthday" : {
+                "month" : 9,
+                "day" : 25,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("60213346adbf9244e754099c"),
+        "name" : "samer",
+        "home_state" : "ramallah",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.find({lucky_number:{$lte:10}}).pretty()
+{
+        "_id" : ObjectId("60213289adbf9244e7540998"),
+        "name" : "kamal",
+        "home_state" : "nablus",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 2,
+                "year" : 1994
+        }
+}
+{
+        "_id" : ObjectId("602132c4adbf9244e7540999"),
+        "name" : "salah",
+        "home_state" : "ramallah",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 10,
+                "day" : 2,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("60213303adbf9244e754099b"),
+        "name" : "abdusalam",
+        "home_state" : "nablus",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 12,
+                "day" : 1,
+                "year" : 1993
+        }
+}
+{
+        "_id" : ObjectId("60213346adbf9244e754099c"),
+        "name" : "samer",
+        "home_state" : "ramallah",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+{
+        "_id" : ObjectId("60213362adbf9244e754099d"),
+        "name" : "yasmeen",
+        "home_state" : "ramallah",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 9,
+                "day" : 5,
+                "year" : 1995
+        }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.find({lucky_number:{$gt:1,$lt:9}}).pretty()
+{
+        "_id" : ObjectId("60213289adbf9244e7540998"),
+        "name" : "kamal",
+        "home_state" : "nablus",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 2,
+                "year" : 1994
+        }
+}
+{
+        "_id" : ObjectId("602132c4adbf9244e7540999"),
+        "name" : "salah",
+        "home_state" : "ramallah",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 10,
+                "day" : 2,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("60213303adbf9244e754099b"),
+        "name" : "abdusalam",
+        "home_state" : "nablus",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 12,
+                "day" : 1,
+                "year" : 1993
+        }
+}
+{
+        "_id" : ObjectId("60213362adbf9244e754099d"),
+        "name" : "yasmeen",
+        "home_state" : "ramallah",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 9,
+                "day" : 5,
+                "year" : 1995
+        }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.updateMany({},{$set:{interests:["coding","branch","mongodb"]}})
+{ "acknowledged" : true, "matchedCount" : 6, "modifiedCount" : 6 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("60213289adbf9244e7540998"),
+        "name" : "kamal",
+        "home_state" : "nablus",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 7,
+                "day" : 2,
+                "year" : 1994
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("602132c4adbf9244e7540999"),
+        "name" : "salah",
+        "home_state" : "ramallah",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 10,
+                "day" : 2,
+                "year" : 1997
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("602132e6adbf9244e754099a"),
+        "name" : "manar",
+        "home_state" : "italy",
+        "lucky_number" : 62,
+        "birthday" : {
+                "month" : 9,
+                "day" : 25,
+                "year" : 1995
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("60213303adbf9244e754099b"),
+        "name" : "abdusalam",
+        "home_state" : "nablus",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 12,
+                "day" : 1,
+                "year" : 1993
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("60213346adbf9244e754099c"),
+        "name" : "samer",
+        "home_state" : "ramallah",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb"
+        ]
+}
+{
+        "_id" : ObjectId("60213362adbf9244e754099d"),
+        "name" : "yasmeen",
+        "home_state" : "ramallah",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 9,
+                "day" : 5,
+                "year" : 1995
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb"
+        ]
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.update({name:"abdusalam"},{$addToSet:{interests:"java"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name:"yasmeen"},{$addToSet:{interests:"mern"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name:"kamal"},{$addToSet:{interests:"php"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name:"manar"},{$addToSet:{interests:"bootstrap"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name:"samer"},{$addToSet:{interests:"css"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name:"salah"},{$addToSet:{interests:"python"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.update({name:"abdusalam"},{$addToSet:{interests:"taxes"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.update({name:"abdusalam"},{$pull:{interests:"taxes"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find({name:"abdusalam"}).pretty()
+{
+        "_id" : ObjectId("60214579a6123ba4b753f943"),
+        "name" : "abdusalam",
+        "home_state" : "nablus",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 12,
+                "day" : 1,
+                "year" : 1993
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb",
+                "java"
+        ]
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.remove({home_state:"nablus"})
+WriteResult({ "nRemoved" : 2 })
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.remove({name:"samer"},true)
+WriteResult({ "nRemoved" : 1 })
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.remove({lucky_number:{$gt:5}},true)
+WriteResult({ "nRemoved" : 1 })
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.updateMany({home_state:"ramallah"},{$set:{number_of_belts:1}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("602142d2a6123ba4b753f93d"),
+        "name" : "salah",
+        "home_state" : "ramallah",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 10,
+                "day" : 2,
+                "year" : 1997
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb",
+                "python"
+        ],
+        "number_of_belts" : 1
+}
+{
+        "_id" : ObjectId("60214346a6123ba4b753f942"),
+        "name" : "yasmeen",
+        "home_state" : "ramallah",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 9,
+                "day" : 5,
+                "year" : 1995
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb",
+                "mern"
+        ],
+        "number_of_belts" : 1
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.updateMany({},{$rename:{number_of_belts:"belts_earnd"}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("602142d2a6123ba4b753f93d"),
+        "name" : "salah",
+        "home_state" : "ramallah",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 10,
+                "day" : 2,
+                "year" : 1997
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb",
+                "python"
+        ],
+        "belts_earnd" : 1
+}
+{
+        "_id" : ObjectId("60214346a6123ba4b753f942"),
+        "name" : "yasmeen",
+        "home_state" : "ramallah",
+        "lucky_number" : 2,
+        "birthday" : {
+                "month" : 9,
+                "day" : 5,
+                "year" : 1995
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb",
+                "mern"
+        ],
+        "belts_earnd" : 1
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.updateMany({},{$unset:{lucky_number:""}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("602142d2a6123ba4b753f93d"),
+        "name" : "salah",
+        "home_state" : "ramallah",
+        "birthday" : {
+                "month" : 10,
+                "day" : 2,
+                "year" : 1997
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb",
+                "python"
+        ],
+        "belts_earnd" : 1
+}
+{
+        "_id" : ObjectId("60214346a6123ba4b753f942"),
+        "name" : "yasmeen",
+        "home_state" : "ramallah",
+        "birthday" : {
+                "month" : 9,
+                "day" : 5,
+                "year" : 1995
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb",
+                "mern"
+        ],
+        "belts_earnd" : 1
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+> db.students.updateMany({},{$set:{updated_on:Date()}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("602142d2a6123ba4b753f93d"),
+        "name" : "salah",
+        "home_state" : "ramallah",
+        "birthday" : {
+                "month" : 10,
+                "day" : 2,
+                "year" : 1997
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb",
+                "python"
+        ],
+        "belts_earnd" : 1,
+        "updated_on" : "Mon Feb 08 2021 16:37:01 GMT+0200 (Jerusalem Standard Time)"
+}
+{
+        "_id" : ObjectId("60214346a6123ba4b753f942"),
+        "name" : "yasmeen",
+        "home_state" : "ramallah",
+        "birthday" : {
+                "month" : 9,
+                "day" : 5,
+                "year" : 1995
+        },
+        "interests" : [
+                "coding",
+                "branch",
+                "mongodb",
+                "mern"
+        ],
+        "belts_earnd" : 1,
+        "updated_on" : "Mon Feb 08 2021 16:37:01 GMT+0200 (Jerusalem Standard Time)"
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
