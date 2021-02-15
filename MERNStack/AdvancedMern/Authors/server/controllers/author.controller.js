@@ -20,7 +20,8 @@ module.exports.getAuthor = (request,response) => {
     .catch(err => response.status(400).json(err));
 }
 module.exports.updateAuthor = (request,response) => {
-    Author.findByIdAndUpdate({_id:request.params.id},request.body, {new:true, runValidators: true})
+    Author.findByIdAndUpdate({_id:request.params.id},request.body, {new:true,runValidators: true})
     .then(updatedAuthor => response.json(updatedAuthor))
     .catch(err => response.status(400).json(err));
 }
+
