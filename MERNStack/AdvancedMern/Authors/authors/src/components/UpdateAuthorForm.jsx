@@ -14,7 +14,7 @@ const UpdateAuthorForm = (props) => {
     useEffect( () => {
         axios.get("http://localhost:8000/api/authors/"+props.id)
             .then(response => {setName((response.data.name));setIdError("")})
-            .catch(error => setIdError("We're sorry, but we could not find the author you are looking for. Would you like to add this author to our database?"))
+            .catch(error =>setIdError("We're sorry, but we could not find the author you are looking for. Would you like to add this author to our database?"))
     },[])
     const onSubmit = e => {
         e.preventDefault()

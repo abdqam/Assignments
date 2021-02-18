@@ -1,15 +1,14 @@
 import './App.css';
+import Details from './views/Details';
 import Main from './views/Main'
-import Detail from './components/Detail';
 import { Router } from '@reach/router';
-
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Main path="/"/>
-        <Detail path="products/:id" />
+      <Main path="/"/>
+      <Details path="/products/:id"/>
       </Router>
     </div>
   );
