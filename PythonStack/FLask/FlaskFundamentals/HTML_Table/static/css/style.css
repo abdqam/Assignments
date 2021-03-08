@@ -1,0 +1,10 @@
+table tr td{
+    border:1px solid gray;
+}
+table thead th{
+    border:1px solid gray;
+}
+table{
+    border:1px solid gray;
+
+}

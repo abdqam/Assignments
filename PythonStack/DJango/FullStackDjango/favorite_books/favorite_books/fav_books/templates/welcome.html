@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+
+<body>
+    <h1> Welcome: {{ first_name }} {{ last_name }} </h1>
+    <a style="float: right;" href="/logout">Logout</a>
+    <br>
+    <hr>
+    <div class="favorite">
+        <h3>Add a favorite Book</h3>
+        <form action="/addbook" method="POST">
+            {% csrf_token %}
+            <label for="title">title: </label>
+            <br>
+            <input type="text" id="title" name="title" required>
+            <br>
+            <label for="description">description: </label>
+            <br>
+            <textarea name="description" id="" cols="30" rows="5"></textarea>
+            <br>
+            <br>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    <div class="books">
+        {% for book in books %}
+        <a href="/books/{{book.id}}">{{book.title}}</a>
+        <p>(Added by {{book.uploaded_by_id.first_name}} {{book.uploaded_by_id.last_name}})</p>
+        {% if book in favorites %}
+        <p>This is one of your favorite</p>
+        {% endif %}
+        {% if book not in favorites %}
+        <a href="/addtofav/{{book.id}}">Add to your favorite</a>
+        {% endif %}
+        <br>
+
+        
+        {% endfor %}
+    </div>
+</body>
+
+</html>

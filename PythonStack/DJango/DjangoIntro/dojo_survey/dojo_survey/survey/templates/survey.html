@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+</head>
+
+<body>
+    <center>
+        <form action="/result" method="POST">
+            {% csrf_token %}
+            <label for="name">Your name: <input name="name" type="text"></label><br><br>
+            <label for="location">Dojo Location:
+                <select name="location" id="location">
+                    <option value="nablus">Nablus</option>
+                    <option value="nablus">Ramallah</option>
+                    <option value="nablus">Hebron</option>
+                </select>
+            </label><br><br>
+            <label for="language">Favorite Language:
+                <select name="language" id="language">
+                    <option value="nablus">Arabic</option>
+                    <option value="nablus">English</option>
+                    <option value="nablus">Russia</option>
+                </select>
+            </label><br><br>
+            <label for="comment"> Comment(Optional): </label><br><textarea name="comment" id="comment" cols="30"
+            rows="10"></textarea> <input type="submit" value="Submit">
+        </form>
+    </center>
+</body>
+
+</html>

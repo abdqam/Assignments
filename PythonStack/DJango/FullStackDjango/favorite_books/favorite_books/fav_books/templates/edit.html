@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+</head>
+
+<body>
+    <div></div>
+    <h2>{{book.title}}</h2>
+    <p>Added By: {{book.uploaded_by_id.first_name}}</p>
+    <p>Added At: {{book.created_at}}</p>
+    <p>Last Update: {{book.updated_at}}</p>
+    {% if request.session.user_id == book.uploaded_by_id.id %}
+    <form action="/edit" method="post">
+        <label for="desc">Description</label>
+        <textarea name="Description" id="desc" cols="30" rows="10">{{book.desc}}</textarea>
+        <button>Update</button><a href="/destroy">Delete</a>
+    </form>
+    {% else %}
+    <p>Description: {{book.desc}}</p>
+    {% endif %}
+    </div>
+    <div>
+        <h2>Users who like this books</h2>
+        {% for user in users %}
+        <ul>
+            <li>{{user.first_name}} {{user.last_name}}</li>
+        </ul>
+        {% endfor %}
+    </div>
+    {% if signed_user not in users %}
+    <a href="/addtofav/{{book.id}}">Add to your favorite</a>
+    <br>
+    {% endif %}
+    {% if signed_user in users %}
+    <a href="/removefav/{{book.id}}">unfavorite</a>
+    <br>
+    {% endif %}
+    <br>
+    <a href="/books">Go Back</a>
+</body>
+
+</html>

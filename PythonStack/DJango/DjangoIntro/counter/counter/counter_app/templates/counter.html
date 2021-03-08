@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+</head>
+
+<body>
+    <h1>Counter</h1>
+    <p>The actual counter in session is: {{request.session.counter}}</p>
+    <p>counter in session by user is: {{request.session.usercounter}}</p>
+    <form action="destroy_session">
+        <button>reset</button>
+    </form>
+    <form action="plus_tow">
+        <button> +2 </button>
+    </form>
+    <form action="plus_user_define" method="POST">
+        {% csrf_token %}
+        <input type="text" name="count">
+        <button type="submit">plus user</button>
+    </form>
+</body>
+
+</html>

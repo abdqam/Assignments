@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+</head>
+
+<body>
+    <div class="gold">
+        <label>Your Gold: </label>
+        <p>{{request.session.gold}}</p>
+    </div>
+    <div class="main">
+
+        <form class="form" method="POST" action="/process_money">
+            {% csrf_token %}
+            <input type="hidden" name="which_form" value="farm">
+            <h3>Farm</h3>
+            <p>(earns 10-20 golds)</p>
+            <button>Find Gold!</button>
+        </form>
+        <form class="form" method="POST" action="/process_money">
+            {% csrf_token %}
+            <input type="hidden" name="which_form" value="cave">
+            <h3>Cave</h3>
+            <p>(earns 5-10 golds)</p>
+            <button>Find Gold!</button>
+        </form>
+        <form class="form" method="POST" action="/process_money">
+            {% csrf_token %}
+            <input type="hidden" name="which_form" value="house">
+            <h3>House</h3>
+            <p>(earns 2-5 golds)</p>
+            <button>Find Gold!</button>
+        </form>
+        <form class="form" method="POST" action="/process_money">
+            {% csrf_token %}
+            <input type="hidden" name="which_form" value="casino">
+            <h3>Casino</h3>
+            <p>(earns/takes 0-50 golds)</p>
+            <button>Find Gold!</button>
+        </form>
+    </div>
+    <div class="activites">
+        <p>activites:</p>
+        <div class="scroll">
+            <p>{{request.session.result|linebreaks}}</p>
+        </div>
+        <form class="destroy" action="/destroy"><button>Play Again</button></form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great</title>
+</head>
+
+<body>
+    <center>
+        <h3>Welcome to the Great Number Game!</h3>
+        <h4>I am thinking of a number between 1 and 100</h4>
+        <h4>Take a Guess!</h4>
+        {% if request.session.result == 'high' %}
+        {% if request.session.guessed < 5 %}
+        <p>{{request.session.guessed}} attempts</p>
+        <div class="lose">
+            <p>too High</p>
+        </div><br>
+        {% endif %}
+        {% endif %}
+        {% if request.session.result == 'low' %}
+        {% if request.session.guessed < 5 %}
+        <p>{{request.session.guessed}} attempts</p>
+        <div class="lose">
+            <p>too Low</p>
+        </div><br>
+        {% endif %}
+        {% endif %}
+        {% if request.session.result != 'correct' %}
+        {% if request.session.guessed < 5 %}
+        <form action="/check" method="POST">
+            {% csrf_token %}
+            <input type="text" name="value"><br><br>
+            <button type="submit">Submit</button>
+        </form>
+        {% endif %}
+        {% endif %}
+        {% if request.session.result == 'correct' %}
+        <form action="/back">
+            {% csrf_token %}
+            <div class="win">
+                <p>{{request.session.cumputer_number}} was the number!</p>
+                <button type="submit">Play again</button>
+                <p>After {{request.session.guessed}} attempts</p>
+            </div>
+        </form>
+        {% endif %}
+        {% if request.session.result != 'correct' %}
+        {% if request.session.guessed >= 5 %}
+        <form action="/lose">
+            {% csrf_token %}
+            <div class="lose">
+                <p>You Lose!</p>
+                <button type="submit">Play again</button>
+            </div>
+            <p>You lose because you Exceeded the number of attempts which is 5</p>
+        </form>
+        {% endif %}
+        {% endif %}
+    </center>
+</body>
+
+</html>

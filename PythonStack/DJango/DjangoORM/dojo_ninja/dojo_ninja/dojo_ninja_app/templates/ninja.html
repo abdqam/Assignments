@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja & Dojos</title>
+</head>
+
+<body>
+    <div class="main">
+        <div>
+            <table>
+                <h3>Add a Dojo</h3>
+                <tbody>
+                    <form action="/add_dojo" method="post">
+                        {% csrf_token %}
+                        <tr>
+                            <td><label for="name">Name:</label></td>
+                            <td><input type="text" name="dojo_name" id="dojo_name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="city">City:</label></td>
+                            <td><input type="text" name="dojo_city" id="dojo_city"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="state">State:</label></td>
+                            <td><input type="text" name="dojo_state" id="dojo_state"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button>Add</button></td>
+                        </tr>
+                    </form>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table>
+                <h3>Add a Ninja</h3>
+                <tbody>
+                    <form action="/add_ninja" method="post">
+
+                        {% csrf_token %}
+                        <tr>
+                            <td><label for="first_name">First Name:</label></td>
+                            <td><input type="text" name="first_name" id="first_name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="last_name">Last Name:</label></td>
+                            <td><input type="text" name="last_name" id="last_name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="dojo_name">Dojo:</label></td>
+                            <td> <select name="dojos" id="dojo_name">
+                                    <option disabled selected value="">-select adojo-</option>
+                                    {% for dojo in dojos%}
+                                    <option value="{{dojo.id}}">{{dojo.name}}</option>
+                                    {% endfor %}
+                                </select></td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button>Add</button></td>
+                        </tr>
+                    </form>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr>
+    <div class="result">
+        <h3>All the Dojos</h3>
+        {% for dojo in dojos %}
+        <h4>Ninjas at {{dojo.name}} Dojo</h4>
+        <ul>
+            {% for ninja in dojo.ninjas.all %}
+            <li>{{ninja.first_name}} {{ninja.last_name}}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

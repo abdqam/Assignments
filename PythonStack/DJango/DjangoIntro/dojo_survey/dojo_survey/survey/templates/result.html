@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+
+<body>
+    <center>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name: </td>
+                    <td>{{name}}</td>
+                </tr>
+                <tr>
+                    <td>Location: </td>
+                    <td>{{location}}</td>
+                </tr>
+                <tr>
+                    <td>Language: </td>
+                    <td>{{language}}</td>
+                </tr>
+                <tr>
+                    <td>Comment: </td>
+                    <td>{{comment}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="/">
+            <button>Back</button></form>
+    </center>
+</body>
+
+</html>

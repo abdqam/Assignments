@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+
+<body>
+    <center>
+        <table class="email">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </thead>
+            <tbody>
+                {% for user in all_the_users%}
+                <tr class="emails">
+                    <td>{{user.id}}</td>
+                    <td>{{user.first_name}} {{user.last_name}}</td>
+                    <td>{{user.email_address}}</td>
+                    <td>{{user.age}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <form action="/add" method="POST">
+            {% csrf_token %}
+            <label for="first">First Nmae: </label>
+            <input name="first_name" type="text">
+            <label for="last">Last Name: </label>
+            <input name="last_name" type="text"><br><br>
+            <label for="email">Email Address: </label>
+            <input name="email" type="text">
+            <label for="age">Age: </label>
+            <input name="age" type="text">
+            <input type="submit" value="Add">
+        </form>
+    </center>
+
+</body>
+
+</html>

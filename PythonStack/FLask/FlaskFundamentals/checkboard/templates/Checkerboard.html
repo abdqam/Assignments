@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table{
+            border-spacing: 0px;
+        }
+        .first_color{
+            background-color: red;
+            height: 50px;
+            width: 50px;
+        }
+        .second_color{
+            background-color: black;
+            height: 50px;
+            width: 50px;
+        }
+        .colorone{
+            background-color:{{color1}};
+        }
+        .colortwo{
+            background-color:{{color2}};
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+</head>
+<body>
+    <table>
+        {% for i in range(rows): %}
+            {% if i%2 == 0 : %}
+                <tr>
+                    {% for j in range(columns): %}
+                        {% if j%2==0:%}
+                            <td class="first_color colorone"></td>
+                        {% endif %}
+                        {% if j%2!=0:%}
+                        <td class="second_color colortwo"></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {%endif %}
+            {% if i%2 !=0: %}
+                <tr>
+                    {% for j in range (columns): %}
+                        {% if j%2==0:%}
+                            <td class="second_color colortwo"></td>
+                        {% endif %}
+                        {% if j%2!=0:%}
+                        <td class="first_color colorone"></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endif %}
+            {% endfor %}
+    </table>
+</body>
+</html>

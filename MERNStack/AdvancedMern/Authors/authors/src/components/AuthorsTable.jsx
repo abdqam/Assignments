@@ -22,3 +22,5 @@ const AuthorsTable = props => {
     )
 }
 export default AuthorsTable
+
+// const sortedAuthor = [...author].sort()

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body{
+            width: 720px;
+        }
+        body>div{
+            display: inline-block;
+            justify-content: space-between;
+            width: 720px;
+        }
+        body>h1{
+            text-align: center;
+        }
+        .box {
+            width: 150px;
+            height: 150px;
+            display: inline-block;
+            background-color: {{color}};
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+</head>
+
+<body>
+    <h1>Playground</h1>
+    <div>
+        {% for x in range(num) %}
+        <div class="box"></div>
+        {%endfor%}
+    </div>
+</body>
+
+</html>

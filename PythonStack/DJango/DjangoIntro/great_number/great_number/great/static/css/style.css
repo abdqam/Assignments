@@ -1,0 +1,16 @@
+.lose{
+    height: 100px;
+    width: 100px;
+    padding: 25px;
+    background-color: red;
+    border: 1px solid black;
+    color: white;
+}
+.win{
+    height: 100px;
+    width: 110px;
+    padding: 25px;
+    background-color: green;
+    border: 1px solid black;
+    color: white;
+}

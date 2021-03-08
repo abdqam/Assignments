@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authers</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+
+<body>
+    <center>
+        <main>
+            <div class="box">
+                <h1>Add an Auther</h1>
+                <form method="POST" action="/authers">
+                    {% csrf_token %}
+                    <ul class="LIST">
+                        <li>First name <input name="first" type="text"></li><br>
+                        <li>last name <input name="last" type="text"></li><br>
+                        <li>Notes <textarea name="note" type="text"></textarea></li><br>
+                        <li><input class="but" type="submit" value="add"></li>
+                    </ul>
+                </form>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for auther in all_authers %}
+                    <tr>
+                        <td>{{auther.id}}</td>
+                        <td>{{auther.first_name}} {{auther.last_name}} </td>
+                        <td><a href="/authers/{{auther.id}}">view</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+
+            </div>
+        </main>
+    </center>
+
+</body>
+
+</html>

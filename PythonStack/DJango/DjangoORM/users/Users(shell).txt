@@ -1,0 +1,43 @@
+from users_app.models import *
+
+>>> Users.objects.create(first_name = "Osaid", last_name="makhalfih",email_address="Osaid@hotmail.com",age=25)
+<Users: Users object (1)>
+
+>>> Users.objects.create(first_name = "manar", last_name="hasan",email_address="manar@hotmail.com",age=25)     
+<Users: Users object (2)>
+
+>>> Users.objects.create(first_name = "abed", last_name="km",email_address="abed@hotmail.com",age=25)         
+<Users: Users object (3)>
+
+
+>>> Users.objects.all()
+<QuerySet [<Users: <Users object: Osaid,makhalfih,Osaid@hotmail.com,25 (1)>>, <Users: <Users object: manar,hasan,manar@hotmail.com,25 (2)>>, <Users: <Users object: abed,km,abed@hotmail.com,25 (3)>>]>
+
+>>> Users.objects.last()
+<Users: <Users object: abed,km,abed@hotmail.com,25 (3)>>
+
+>>> Users.objects.first()
+<Users: <Users object: Osaid,makhalfih,Osaid@hotmail.com,25 (1)>>
+
+
+>>> change_user = Users.objects.get(id=3)
+>>> change_user.last_name = "Pancakes"
+>>> change_user.save()
+>>> Users.objects.all()
+<QuerySet [<Users: <Users object: Osaid,makhalfih,Osaid@hotmail.com,25 (1)>>, <Users: <Users object: manar,hasan,manar@hotmail.com,25 (2)>>, <Users: <Users object: abed,Pancakes,abed@hotmail.com,25 (3)>>]>
+
+
+
+>>> delete_user = Users.objects.get(id=2)
+>>> delete_user.delete()
+(1, {'users_app.Users': 1})
+>>> Users.objects.all()
+<QuerySet [<Users: <Users object: Osaid,makhalfih,Osaid@hotmail.com,25 (1)>>, <Users: <Users object: abed,Pancakes,abed@hotmail.com,25 (3)>>]>
+
+
+>>> Users.objects.order_by('first_name')
+<QuerySet [<Users: <Users object: Osaid,makhalfih,Osaid@hotmail.com,25 (1)>>, <Users: <Users object: abed,Pancakes,abed@hotmail.com,25 (3)>>]>
+
+
+>>> Users.objects.order_by('first_name')[::-1]
+[<Users: <Users object: abed,Pancakes,abed@hotmail.com,25 (3)>>, <Users: <Users object: Osaid,makhalfih,Osaid@hotmail.com,25 (1)>>]

@@ -1,0 +1,64 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    display: inline-block;
+    border: 1px solid black;
+    width: 300px;
+    height: 250px;
+    margin: 20px;
+}
+
+.LIST li {
+    list-style: none;
+    text-align: end;
+    padding-right: 11px;
+}
+
+.but{
+    width: 70px ;
+    box-shadow: 1px 2px 3px black;
+    border-radius: 3px;
+}
+
+ul{
+    list-style: inside;
+}
+.dojo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+.dojo a{
+    text-decoration: none;
+    color: rgb(117, 95, 95);
+    margin-left: 33px;
+    border: 1px solid black;
+    width: 66px;
+    background: linear-gradient(45deg, #0000007a, #00000029);
+    border-radius: 3px;
+}
+
+.dojo p {
+    font-family: cursive;
+    font-style: oblique;
+    font-weight: bolder;
+    
+}
+tr{
+    width: 40px;
+}
+
+table{
+    border: 1px solid black;
+    height: 252px;
+}
+td{
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}

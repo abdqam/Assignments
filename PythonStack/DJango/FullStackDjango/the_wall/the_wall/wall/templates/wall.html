@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall Page</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1>CodingDojo Wall</h1>
+        </div>
+        <div class="logout">
+            <h3> Welcome: {{ first_name }}</h3>
+            <a style="float: right;" href="/logout">Logout</a>
+        </div>
+    </div>
+    <hr>
+    <div class="posts">
+        <form action="/addpost" method="POST">
+            {% csrf_token %}
+            <label for="post">Post a message: </label>
+            <br>
+            <textarea name="post" id="post" cols="200" rows="5" required></textarea>
+            <br>
+            <br>
+            <input type="submit" value="Post a message">
+            </form>
+            {% for post in posts %}
+            <h3>{{ post.user.first_name }} {{ post.user.last_name}} - {{ post.created_at }}</h3>
+            <p>{{post.description}}</p>
+            {% for comment in post.comments.all %}
+            <h4>{{ comment.user.first_name }} {{ comment.user.last_name}} - {{ comment.created_at }}</h4>
+            <h5>{{comment.description}}</h5>
+            {% endfor %}
+            <form action="/addcomment" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value="{{post.id}}">
+                <label for="comment">Post a comment: </label>
+                <br>
+                <textarea name="comment" id="comment" cols="200" rows="2" required></textarea>
+                <br>
+                <br>
+                <input type="submit" value="Post a comment">
+                </form>
+            
+            {% endfor %}
+    </div>
+    <br>
+</body>
+</html>
